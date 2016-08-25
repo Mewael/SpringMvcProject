@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 		writer.println("user name " + name + "and password " + pwd);
 	}
 	else{
-		writer.println("attempt unsuccessful");
+		response.sendError(404, "OOPs! the password and username is wrong");
 	}
 	}
 
