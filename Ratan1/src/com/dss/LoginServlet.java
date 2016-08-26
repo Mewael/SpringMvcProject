@@ -33,8 +33,10 @@ public class LoginServlet extends HttpServlet {
 	String pwd= request.getParameter("upwd");
 	
 	if(name.equals("ratan")&& pwd.equals("ratan")){
-		writer.println("you have loged in successfully");
-		writer.println("user name " + name + "and password " + pwd);
+//		writer.println("you have loged in successfully");
+//		writer.println("user name " + name + "and password " + pwd);
+		response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+		response.setHeader("location", "https://www.facebook.com");
 	}
 	else{
 		response.sendError(404, "OOPs! the password and username is wrong");
