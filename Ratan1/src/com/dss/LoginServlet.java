@@ -3,6 +3,7 @@ package com.dss;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,11 +43,18 @@ public class LoginServlet extends HttpServlet {
 //		response.setHeader("location", "https://www.facebook.com");
 		
 		// here it's redirecting directly to the website
-		response.sendRedirect("https://www.facebook.com");
+		//response.sendRedirect("https://www.facebook.com");
+		
+		RequestDispatcher dispacher=request.getRequestDispatcher("SuccessServlet");
+		dispacher.forward(request, response);
 		
 	}
 	else{
-		response.sendError(404, "OOPs! the password and username is wrong");
+		
+	writer.println("Please try again");
+	RequestDispatcher dispacher=request.getRequestDispatcher("login.html");
+	dispacher.include(request, response);
+		//response.sendError(404, "OOPs! the password and username is wrong");
 	}
 	}
 
