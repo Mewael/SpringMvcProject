@@ -35,8 +35,15 @@ public class LoginServlet extends HttpServlet {
 	if(name.equals("ratan")&& pwd.equals("ratan")){
 //		writer.println("you have loged in successfully");
 //		writer.println("user name " + name + "and password " + pwd);
-		response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
-		response.setHeader("location", "https://www.facebook.com");
+		
+		//to redirect the client automatically to another website(but
+		//the request is reaching to the sender first
+//		response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+//		response.setHeader("location", "https://www.facebook.com");
+		
+		// here it's redirecting directly to the website
+		response.sendRedirect("https://www.facebook.com");
+		
 	}
 	else{
 		response.sendError(404, "OOPs! the password and username is wrong");
